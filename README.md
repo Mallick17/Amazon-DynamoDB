@@ -32,6 +32,31 @@ Amazon DynamoDB is a fully managed, serverless, NoSQL database service provided 
 - _**Change Data Capture (CDC)**:_ Uses DynamoDB Streams and Amazon Kinesis to capture data changes for real-time processing.
 - _**Secondary Indexes**:_ Global and local secondary indexes enable flexible querying without impacting performance.
 
+### Security:
+- Integrates with AWS Identity and Access Management (IAM) for fine-grained access control.
+- Encrypts data at rest using AWS Key Management Service (KMS), with options for AWS-owned keys (free) or customer-managed keys (fee-based).
+- Complies with standards like HIPAA, PCI DSS, and GDPR.
+
+### Resilience:
+- Replicates data across three Availability Zones for 99.99% availability.
+- Offers continuous backups with point-in-time recovery (up to 35 days) and on-demand backups for additional protection.
+
+### Pricing:
+- Charges based on read capacity units (RCUs), write capacity units (WCUs), and storage.
+- On-demand mode charges per operation; provisioned mode allows predefined throughput.
+- Free tier includes 25 GB of storage, 25 WCUs, and 25 RCUs, supporting up to 200 million requests per month.
+
+### Service Integrations:
+- Integrates with AWS Lambda for serverless compute (e.g., triggers on data changes).
+- Supports data import/export with Amazon S3.
+- Enables zero-ETL integration with Amazon Redshift and OpenSearch for analytics.
+- DynamoDB Accelerator (DAX) provides caching for up to 10x read performance improvement.
+- _**Access Methods:**_ Supports AWS Management Console, AWS CLI, NoSQL Workbench, and DynamoDB APIs for interaction.
+
+
+
+
+
 
 
 
