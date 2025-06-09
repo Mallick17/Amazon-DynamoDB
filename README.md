@@ -53,8 +53,10 @@ Amazon DynamoDB is a fully managed, serverless, NoSQL database service provided 
 - DynamoDB Accelerator (DAX) provides caching for up to 10x read performance improvement.
 - _**Access Methods:**_ Supports AWS Management Console, AWS CLI, NoSQL Workbench, and DynamoDB APIs for interaction.
 
+---
 
-
+## Comparison Between DynamoDB and RDS
+Amazon RDS (Relational Database Service) is a managed relational database service supporting SQL databases like MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora. While both DynamoDB and RDS are fully managed by AWS, they cater to different needs based on data models, scalability, and use cases. The table below compares their key features for clear documentation.
 
 
 
