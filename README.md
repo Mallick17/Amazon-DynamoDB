@@ -14,3 +14,36 @@ Amazon DynamoDB is a fully managed, serverless, NoSQL database service provided 
 
 ### Performance
 - Delivers single-digit millisecond latency at any scale, optimized for high-performance workloads. It can handle over 10 trillion requests per day and peaks exceeding 20 million requests per second.
+
+### Scalability 
+- Scales horizontally by automatically distributing data across multiple servers, supporting virtually unlimited storage and throughput. It offers two capacity modes: on-demand (automatic scaling) and provisioned (manual capacity settings).
+
+## Use Cases
+**Ideal for applications requiring high scalability, such as:**
+- Financial services (e.g., live trading, loan management, transaction ledgers)
+- Gaming (e.g., game state, leaderboards)
+- Streaming (e.g., metadata indexing, recommendations)
+- IoT (e.g., real-time data processing)
+- Mobile apps and content management systems
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
