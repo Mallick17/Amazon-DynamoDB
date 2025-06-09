@@ -80,36 +80,29 @@ Amazon RDS (Relational Database Service) is a managed relational database servic
 ---
 
 ### Detailed Comparison Insights
+- **Data Model and Schema**
+  - **DynamoDB:** Its schema-less design allows for dynamic data structures, making it ideal for applications with evolving requirements, such as mobile apps or IoT. Data is stored as key-value pairs or JSON-like documents.
+  - **RDS:** Requires a predefined schema, enforcing structured data with tables, rows, and columns. This is suitable for applications needing relational integrity, like financial systems.
+    
+- **Scalability**
+  - **DynamoDB:** Scales horizontally by automatically partitioning data across servers, supporting massive datasets and high request rates (e.g., over 20 million requests per second).
+  - **RDS:** Primarily scales vertically by upgrading instance types. Horizontal scaling is possible with read replicas, but it’s less seamless than DynamoDB’s approach.
 
-**Data Model and Schema**
+- **Performance**
+  - **DynamoDB:** Optimized for NoSQL workloads, delivering low-latency access for key-based queries. DAX caching can reduce read times from milliseconds to microseconds.
+  - **RDS:** Excels in relational workloads, supporting complex SQL queries and transactions. Performance depends on the database engine and instance type (e.g., Aurora offers up to 40,000 IOPS).
 
-* **DynamoDB:** Schema-less, allowing dynamic data structures. Ideal for evolving apps (e.g., mobile, IoT). Data is stored as key-value pairs or JSON-like documents.
-* **RDS:** Requires a predefined schema with structured data. Suited for systems needing relational integrity (e.g., finance, ERP).
+- **Use Cases**
+  - **DynamoDB:** Best for high-traffic, unstructured data applications like real-time bidding, gaming, or IoT. It powers Amazon’s Prime Day and Alexa, handling over 1 billion requests per hour.
+  - **RDS:** Suited for structured data applications requiring complex queries, such as CRM, e-commerce, or data warehousing.
+    
+- **Availability and Resilience**
+  - **DynamoDB:** 3 AZ replication by default, Automatically replicates data across three Availability Zones, with global tables offering multi-region replication for higher availability.
+  - **RDS:**  Multi-AZ deployments are optional, using active-passive failover, which may incur additional costs and complexity.
 
-**Scalability**
-
-* **DynamoDB:** Horizontally scales automatically, handling massive datasets and >20M requests/sec.
-* **RDS:** Primarily vertical scaling. Horizontal scaling via read replicas, but less seamless.
-
-**Performance**
-
-* **DynamoDB:** Low-latency key-based access. DAX caching enables microsecond read times.
-* **RDS:** Strong in relational workloads and complex queries. Aurora supports up to 40,000 IOPS.
-
-**Use Cases**
-
-* **DynamoDB:** Great for real-time bidding, gaming, IoT, Alexa, and high-traffic applications.
-* **RDS:** Ideal for CRM, ERP, e-commerce, and data warehousing.
-
-**Availability and Resilience**
-
-* **DynamoDB:** 3 AZ replication by default, global tables for multi-region HA.
-* **RDS:** Optional Multi-AZ with active-passive failover (may add complexity/cost).
-
-**Cost**
-
-* **DynamoDB:** Pay-per-use for operations and storage; on-demand is flexible but can be costly.
-* **RDS:** Instance-based pricing; reserved instances help reduce costs for predictable workloads.
+- **Cost**
+  - **DynamoDB:** Charges based on read/write operations and storage, with on-demand pricing offering flexibility but potentially higher costs for unpredictable workloads.
+  - **RDS:** Charges per instance, with reserved instances offering cost savings for predictable workloads. Storage and I/O operations add to the cost.
 
 ---
 
