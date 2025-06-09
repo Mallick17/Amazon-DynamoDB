@@ -123,7 +123,7 @@ Amazon RDS (Relational Database Service) is a managed relational database servic
 - **DynamoDB:** A mobile gaming company uses DynamoDB to store player profiles and game states, leveraging its scalability to handle millions of concurrent users during peak events.
 - **RDS**: An e-commerce platform uses RDS (MySQL) to manage product catalogs, customer data, and order transactions, relying on SQL joins for reporting and analytics.
 
-
+---
 
 
 
