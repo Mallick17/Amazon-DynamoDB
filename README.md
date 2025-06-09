@@ -26,6 +26,14 @@ Amazon DynamoDB is a fully managed, serverless, NoSQL database service provided 
 - IoT (e.g., real-time data processing)
 - Mobile apps and content management systems
 
+### Capabilities:
+- _**Global Tables:**_ Enables multi-active replication across AWS regions for low-latency access and 99.999% availability.
+- **_ACID Transactions:_** Supports atomic, consistent, isolated, and durable transactions across one or more tables, suitable for financial transactions or order processing.
+- _**Change Data Capture (CDC)**:_ Uses DynamoDB Streams and Amazon Kinesis to capture data changes for real-time processing.
+- _**Secondary Indexes**:_ Global and local secondary indexes enable flexible querying without impacting performance.
+
+
+
 
 
 
