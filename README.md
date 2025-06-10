@@ -157,6 +157,25 @@ DynamoDB controls how much data your app can read or write using **capacity mode
   - **Fix**: Use **auto-scaling** to adjust limits automatically.
   - **Free Tier**: 25 read and 25 write units (enough for small apps).
 
+### 2. Consistency Models
+DynamoDB keeps multiple data copies for safety. You choose how “up-to-date” your data is when reading.
+
+- **Eventual Consistency** (Default):
+  - Faster and cheaper.
+  - Updates spread slowly, so you might see old data briefly.
+  - **Example**: Delete a profile, but it shows up for a second before disappearing.
+  - Best for apps where speed matters (e.g., social media).
+
+- **Strong Consistency**:
+  - Slower, uses more capacity (2x eventual).
+  - Guarantees the latest data.
+  - **Example**: See the latest balance after a bank transfer.
+  - Add a parameter to your read request to use this.
+
+**Note**: 1 strong consistent read = 2 eventual consistent reads.
+
+
+
 
 
 
