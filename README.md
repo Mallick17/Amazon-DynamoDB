@@ -174,7 +174,60 @@ DynamoDB keeps multiple data copies for safety. You choose how “up-to-date” 
 
 **Note**: 1 strong consistent read = 2 eventual consistent reads.
 
+### 3. Read and Write Requests
+DynamoDB measures work in **read request units (RRUs)** or **write request units (WRUs)** for on-demand mode, and **read capacity units (RCUs)** or **write capacity units (WCUs)** for provisioned mode. Item size affects costs.
 
+- **Read Requests**:
+  - **GetItem**: Reads one item (up to 400 KB).
+    - 1 RRU/RCU = 1 strong read or 2 eventual reads of 4 KB.
+    - **Example**: 2.5 KB item = 4 KB (1 RRU/RCU strong, 0.5 RRU/RCU eventual).
+    - 9 KB item = 12 KB (3 RRU/RCUs strong, 1.5 RRU/RCUs eventual).
+  - **Transactional Read**: All operations succeed or fail together. Uses 2x units.
+  - **BatchGetItem**: Reads up to 100 items. Each rounds to 4 KB.
+    - **Example**: Items of 1 KB, 5 KB, 9.5 KB = 4 KB + 8 KB + 12 KB = 24 KB.
+  - **Query**: Reads items with the same key. Rounds to 4 KB.
+    - **Example**: 49 KB total = 52 KB.
+  - **Scan**: Reads all items. Uses capacity for all accessed items.
+
+- **Write Requests**:
+  - **PutItem**: Writes or overwrites one item.
+    - 1 WRU/WCU = 1 write of 1 KB.
+    - **Example**: 5 KB item = 5 WRU/WCUs. 0.5 KB = 1 WRU/WCU.
+  - **Transactional Write**: All operations succeed or fail together. Uses 2x units.
+  - **BatchWriteItem**: Writes/deletes up to 25 items (max 16 MB).
+  - **UpdateItem**: Changes one item. Uses larger size (before or after).
+    - **Example**: 3 KB to 5 KB = 5 WRU/WCUs.
+  - **DeleteItem**: Removes one item. Uses item size or 1 WRU/WCU if it doesn’t exist.
+
+### 4. Item Size Calculations
+Item size affects performance and cost. Here’s how sizes are calculated:
+
+- **Strings**: 
+  - English letters = 1 byte (e.g., “test” = 4 bytes).
+  - Symbols: “$” = 1 byte, “£” = 2 bytes.
+  - Other languages may use 2–4 bytes.
+
+- **Numbers**: 
+  - Formula: (attribute name length) + (1 byte per two digits) + (1 byte).
+  - **Example**: “112” = 3 bytes. “-112” = 4 bytes. “123” = 3 bytes.
+
+- **Binary**: 1 byte per byte.
+  - **Example**: 4-byte binary = 4 bytes.
+
+- **Boolean**: True/false = 1 byte.
+
+- **Null**: 1 byte.
+
+- **List/Map**: 3 bytes + element sizes + 1 byte per element/pair.
+  - **Example**: List [“a”, “b”] = 3 + 1 + 1 + 2 = 7 bytes.
+
+- **Item Example**:
+  - Attribute names: `pk`, `sk`, `str`, etc. = 28 bytes.
+  - Values: “testid” (6 bytes), “test” (4 bytes), “example” (7 bytes), binary “QQ==” (4 bytes), true (1 byte), null (1 byte), number “112” (3 bytes), list [“a”, “b”] (7 bytes), map {“x”: 1} (5 bytes).
+  - Total: 28 + 21 + 22 = **71 bytes**.
+
+- **Reads**: Round to next 4 KB (e.g., 2.5 KB = 4 KB).
+- **Writes**: Round to next 1 KB (e.g., 1.5 KB = 2 KB).
 
 
 
