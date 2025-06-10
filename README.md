@@ -58,6 +58,9 @@ Amazon DynamoDB is a fully managed, serverless, NoSQL database service provided 
 ## Comparison Between DynamoDB and RDS
 Amazon RDS (Relational Database Service) is a managed relational database service supporting SQL databases like MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora. While both DynamoDB and RDS are fully managed by AWS, they cater to different needs based on data models, scalability, and use cases. The table below compares their key features for clear documentation.
 
+<details>
+  <summary>Comparison Table Between DynamoDB and RDS</summary>
+
 ### DynamoDB vs Amazon RDS – Feature Comparison
 
 | **Feature**      | **DynamoDB**                                                                    | **Amazon RDS**                                                                                       |
@@ -125,7 +128,7 @@ Amazon RDS (Relational Database Service) is a managed relational database servic
 
 ---
 
-
+</details>
 
 
 
