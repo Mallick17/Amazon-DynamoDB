@@ -132,6 +132,33 @@ Amazon RDS (Relational Database Service) is a managed relational database servic
 
 ---
 
+## Why Item Size Matters
+Items that are too big can:
+- **Slow down** your app (reads/writes take longer).
+- **Cost more** because you pay for data used.
+- **Cause crashes** if the database grows too fast.
+**Tip**: Keep items small (e.g., avoid large text or images) to save money and keep your app fast.
+
+## Key Features of DynamoDB
+
+### 1. Capacity Modes
+DynamoDB controls how much data your app can read or write using **capacity modes**.
+
+- **On-Demand Mode**:
+  - No setup needed—DynamoDB adjusts to your app’s needs.
+  - Pay only for what you use.
+  - Great for apps with unknown traffic (e.g., a new game).
+  - **Example**: Handles 1,000 users without any manual changes.
+
+- **Provisioned Mode**:
+  - You set limits for reads and writes.
+  - Cheaper if you know your traffic (e.g., 100 users/hour).
+  - **Warning**: Too-low limits cause **throttling** (requests fail).
+  - **Fix**: Use **auto-scaling** to adjust limits automatically.
+  - **Free Tier**: 25 read and 25 write units (enough for small apps).
+
+
+
 
 
 
