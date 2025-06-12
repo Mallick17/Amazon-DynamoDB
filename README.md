@@ -147,13 +147,6 @@ Amazon RDS (Relational Database Service) is a managed relational database servic
 
 ---
 
-## Why Item Size Matters
-Items that are too big can:
-- **Slow down** your app (reads/writes take longer).
-- **Cost more** because you pay for data used.
-- **Cause crashes** if the database grows too fast.
-**Tip**: Keep items small (e.g., avoid large text or images) to save money and keep your app fast.
-
 ## Key Features of DynamoDB
 
 ### 1. Capacity Modes
@@ -215,7 +208,18 @@ DynamoDB measures work in **read request units (RRUs)** or **write request units
   - **DeleteItem**: Removes one item. Uses item size or 1 WRU/WCU if it doesn’t exist.
 
 ### 4. Item Size Calculations
-Item size affects performance and cost. Here’s how sizes are calculated:
+_**Why Item Size Matters**_
+- Item size affects performance and cost. 
+- Items that are too big can:
+  - **Slow down** your app (reads/writes take longer).
+  - **Cost more** because you pay for data used.
+  - **Cause crashes** if the database grows too fast.
+- **Tip**: Keep items small (e.g., avoid large text or images) to save money and keep your app fast.
+  
+<details>
+  <summary>Click to View How Sizes Are Calculated</summary>
+  
+## Here’s how sizes are calculated:
 
 - **Strings**: 
   - English letters = 1 byte (e.g., “test” = 4 bytes).
@@ -244,9 +248,9 @@ Item size affects performance and cost. Here’s how sizes are calculated:
 - **Reads**: Round to next 4 KB (e.g., 2.5 KB = 4 KB).
 - **Writes**: Round to next 1 KB (e.g., 1.5 KB = 2 KB).
 
+</details>
 
-
-
+---
 
 
 
