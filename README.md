@@ -268,3 +268,4 @@ GSIs provide flexibility but have pitfalls to avoid, as highlighted in the trans
   - For queries on non-primary key attributes.
   - When scans are too slow or costly for large tables.
 
+---
