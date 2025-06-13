@@ -1,6 +1,4 @@
 # DynamoDB Global Secondary Indexes (GSIs) Guide
-This document provides a detailed and easy-to-understand guide on DynamoDB Global Secondary Indexes (GSIs), focusing on their purpose, functionality, usage, and potential pitfalls. It includes all examples from the provided transcript, presented in table format for clarity, and explains concepts in simple language. The guide covers related topics such as throttling, query expressions, and capacity units to help developers effectively use GSIs for flexible querying in DynamoDB tables.
-
 ## 1. Introduction to Global Secondary Indexes (GSIs)
 - **Definition**: GSIs allow querying on attributes other than the table’s primary key, enabling flexible query patterns without scanning the entire table.
 - **Purpose**: Provide direct lookups on non-primary key attributes, reducing latency and costs compared to scan operations.
